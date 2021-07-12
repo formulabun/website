@@ -5,6 +5,7 @@ import { Statistic, Placeholder } from 'semantic-ui-react';
 class Counter extends Component {
   constructor(props) {
     super(props);
+    this.state = {serverData: undefined}
 
     this.fetchData = this.fetchData.bind(this);
   }
