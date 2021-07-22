@@ -40,6 +40,7 @@ class FormulabunApp extends App {
       <>
         <Head>
           <link rel="shortcut icon" href="/favicon.ico" />
+          <title>Formula bun</title>
         </Head>
         <meta
           name="viewport"

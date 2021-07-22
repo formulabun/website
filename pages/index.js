@@ -15,8 +15,8 @@ const Title = styled.h1`
 `;
 
 const Index = () => (
-    <Container>
-    <Header as="h1"> Formula bun </Header>
+    <Container style={{margin:"5em"}} >
+      <Header as="h1"> Formula bun </Header>
       <Header> gaming </Header>
       <Image src="/images/fastbun.png" width={1015} height={293}/>
       <p>

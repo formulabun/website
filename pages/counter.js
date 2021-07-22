@@ -27,18 +27,14 @@ class Counter extends Component {
   }
 
   render() {
-    if( ! this.state.serverData )
-      return (
-        <Statistic>
-          <Statistic.Value> <Placeholder> <Placeholder.Image square={true}/> </Placeholder></Statistic.Value>
-          <Statistic.Label> Players </Statistic.Label>
-        </Statistic>
-        
-      );
     return (
       <Statistic>
-        <Statistic.Value> {this.state.serverData.numberofplayers}</Statistic.Value>
-        <Statistic.Label> Players Online </Statistic.Label>
+      { this.state.serverData ?
+            <> <Statistic.Value> {this.state.serverData.numberofplayers}</Statistic.Value>
+            <Statistic.Label> Players Online </Statistic.Label> </>
+          : <> <Statistic.Value> <Placeholder> <Placeholder.Image square={true}/> </Placeholder></Statistic.Value>
+            <Statistic.Label> Players </Statistic.Label> </>
+      }
       </Statistic>
     )
   }

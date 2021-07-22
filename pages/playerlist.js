@@ -29,9 +29,9 @@ class Players extends Component {
   render() {
     this.state.playerData?.playerinfo?.sort((a, b) => (a.score < b.score));
     return (
-      <List celled>
+      <List celled style={{maxWidth:"20%"}}>
         {this.state.playerData?.playerinfo?.map((e) => (
-          <List.Item ket={e.node}> <List.Header> {e.name} </List.Header> {e.score} </List.Item>
+          <List.Item key={e.node}> <List.Header> {e.name} </List.Header> {e.score} </List.Item>
         ))}
       </List>
     )
