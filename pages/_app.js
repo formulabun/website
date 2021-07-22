@@ -1,5 +1,6 @@
 import React from 'react';
 import App from 'next/app';
+import Head from 'next/head';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import theme from '../config';
 
@@ -37,6 +38,9 @@ class FormulabunApp extends App {
 
     return (
       <>
+        <Head>
+          <link rel="shortcut icon" href="/favicon.ico" />
+        </Head>
         <meta
           name="viewport"
           content="initial-scale=1.0, width=device-width, viewport-fit=cover"
