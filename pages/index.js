@@ -19,8 +19,7 @@ const Title = styled.h1`
 `;
 
 const Index = () => {
-  const [error, setErr] = useState({});
-  console.log(error);
+  const [error, setErr] = useState(false);
   return (
     <Container style={{margin:"5em"}} >
       <Header as="h1"> Formula bun </Header>
