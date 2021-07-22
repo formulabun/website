@@ -6,5 +6,5 @@ export default function handler(req, res) {
     (data) => {
       data.playerinfo.sort((a, b) => (a.size < b.size));
       res.status(200).json(data);
-    }, res.status(200).json);
+    }, res.status(500).json);
 }

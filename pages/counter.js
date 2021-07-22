@@ -13,7 +13,7 @@ class Counter extends Component {
   fetchData() {
     fetch(`/api/server`).then((res) => {
       res.json().then((o) => this.setState({serverData:o}));
-    });
+    }).catch(this.props.noserver);
   }
 
   componentDidMount() {
