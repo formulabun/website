@@ -20,11 +20,14 @@ const Title = styled.h1`
 
 const Index = () => {
   const [error, setErr] = useState(false);
+  const [source, setSrc] = useState('');
+  fetch('/api/server').then(res => res.json()).then(o => setSrc(o.httpsource)).catch();
   return (
     <Container style={{margin:"5em"}} >
       <Header as="h1"> Formula bun </Header>
       <Header> gaming </Header>
       <Image src="/images/fastbun.png" width={1015} height={293}/>
+      {source && <Header as="h1"> <a href={source}>DOWNLOAD ADDONS QUICKLY</a></Header>}
       <p>
         <a href={`srb2kart://ip/${process.env.NEXT_PUBLIC_KARTSERVER_IP}`}> join formula bun </a>
       </p>
