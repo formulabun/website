@@ -10,7 +10,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "latest",
     "dotenv": "^10.0.0",
-    "next": "^11.0.1",
+    "next": "^11.1.2",
     "prop-types": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -32,6 +32,9 @@
     "eslint-plugin-prettier": "latest",
     "eslint-plugin-react": "latest",
     "prettier": "latest"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.0.7"
   },
   "scripts": {
     "dev": "next",
