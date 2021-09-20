@@ -11,9 +11,10 @@ class Players extends Component {
   }
 
   fetchData() {
-    fetch(`/api/players`).then((res) => {
-      res.json().then((o) => this.setState({playerData:o}));
-    }).catch();
+    fetch(`/api/players`)
+      .then((res) => res.json())
+      .then((o) => this.setState({playerData:o})
+    ).catch();
   }
 
   componentDidMount() {

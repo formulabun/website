@@ -21,7 +21,7 @@ const Title = styled.h1`
 const Index = () => {
   const [error, setErr] = useState(false);
   const [source, setSrc] = useState('');
-  fetch('/api/server').then(res => res.json()).then(o => setSrc(o.httpsource)).catch();
+  fetch(`/api/server`).then(res => res.json()).then(o => setSrc(o.httpsource)).catch();
   return (
     <Container style={{margin:"5em"}} >
       <Header as="h1"> Formula bun </Header>

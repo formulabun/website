@@ -2,5 +2,16 @@ import {getSrb2Info} from "srb2kartinfoparse";
 require('dotenv').config();
 
 export default function handler(req, res) {
-  getSrb2Info(process.env.NEXT_PUBLIC_KARTSERVER_IP, process.env.NEXT_PUBLIC_KARTSERVER_PORT, res.status(200).json, () => {}, res.status(500).json);
+  return new Promise((resolve, reject) => {
+    getSrb2Info(
+      process.env.NEXT_PUBLIC_KARTSERVER_IP,
+      process.env.NEXT_PUBLIC_KARTSERVER_PORT,
+      resolve,
+      () => {},
+      reject);
+  }).then(
+    res.status(200).json
+  ).catch(
+    res.status(500).json
+  );
 }
