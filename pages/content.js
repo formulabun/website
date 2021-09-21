@@ -5,7 +5,7 @@ export const aboutText = (<>
 
 export const detailsText = (<>
   <p>
-  This server is hosted in Germany using Contabo and is maintained by Fl_GUI#5136.
+  This server is hosted in Germany using Contabo and is maintained by Fl_GUI.
   I started this server in May 2021 as a private one for a small group of friends who all met through srb2kart.
   A couple months later I felt that it should be public.
   The very first that the server was public was a great success, and reminded some of us of the old kkd days, but with more maps.
@@ -52,5 +52,24 @@ export const rulesText = (<>
   An active mod acts in name of formulabun and me personally. If you think a mod treated you unfairly please contact Fl_GUI#5136.
   <br/>
   An inactive mod is their own person. They can say what they want but their views do not have to represent formulabun.
+  </p>
+  </>)
+
+export const joinText = (<>
+  <p>
+    Can't find formulabun in the server browser?
+    <p> On the main menu, open your console with the ` key and type in: <span style={{fontStyle:'italic'}}>connect formulabun.club</span></p>
+    </p>
+  <p>
+    Is this too slow?
+    <p>Open or create the file <span style={{fontStyle:'italic'}}>kartexec.cfg</span> in the directory where you installed srb2kart.
+    In this file add the line:</p>
+    <p style={{fontStyle:'italic'}}>alias fbun "connect formulabun"</p>
+    <p> Now instead of typing
+    <span style={{fontStyle:'italic'}}> connect formulabun.club </span>
+    you can type
+    <span style={{fontStyle:'italic'}}> fbun </span>
+    in your console in order to join.
+    </p>
   </p>
   </>)
