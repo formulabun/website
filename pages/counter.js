@@ -15,7 +15,7 @@ function Counter(props) {
   return (
     <Statistic>
       <Statistic.Value> {data.numberofplayers}</Statistic.Value>
-      <Statistic.Label> Players Online </Statistic.Label>
+      <Statistic.Label>{`Player${data.numberofplayers>1 ? 's' : ''} Online`}</Statistic.Label>
     </Statistic>
   )
 }

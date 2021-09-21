@@ -9,7 +9,7 @@ function Players() {
   if (isError || isLoading ) return ""
   data.playerinfo.sort((a, b) => (a.score < b.score));
   return (
-    <List celled style={{maxWidth:"20%"}}>
+    <List size="big" celled>
     {data.playerinfo.map((e) => (
       <List.Item key={e.node}> <List.Header> {e.name} </List.Header> {e.score} </List.Item>
     ))}
