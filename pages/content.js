@@ -15,7 +15,7 @@ export const detailsText = (<>
   Gameplay changes using mods can still be fun however.
   That's why I added the random event that happen every evening at 9pm CEST.
   These events include: acrobatics, elimination, friendmod, combiring, encore and battle.
-  One of these is picked randomly with weights.
+  One of these is choosen with weithed random chance.
   If an event is not wanted you can enter <span style={{fontStyle:'italic'}}>vote noevent</span> in the console to start a vote to stop the event and return to vanilla race.
   </p>
 
@@ -71,5 +71,9 @@ export const joinText = (<>
     <span style={{fontStyle:'italic'}}> fbun </span>
     in your console in order to join.
     </p>
+  </p>
+  <p>
+    Do you have the moe mansion build?
+    <p> Click <a href={`srb2kart://ip/${process.env.NEXT_PUBLIC_KARTSERVER_IP}`}> here</a>!</p>
   </p>
   </>)

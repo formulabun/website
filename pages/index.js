@@ -16,7 +16,7 @@ import { aboutText, detailsText, rulesText, joinText } from './content.js';
 
 const PageHeader = (props) => {
   return (
-    <div style={{backgroundColor: "#ffc6c6ff"}}>
+    <div style={{backgroundColor: "#ffe9e0"}}>
       <Image src="/images/fastbun.png" width={1015} height={293}/>
       <div style={{padding: '1em 0em 0em 1em'}}>
         <Header as="h1" style={{marginBottom: 0}}> Formula Bun </Header>
@@ -26,7 +26,7 @@ const PageHeader = (props) => {
           panes={props.menu}
           onTabChange={(e, data) => {
             console.log(data.activeIndex);
-            data.panes[data.activeIndex].ref.current?.scrollIntoView({block: 'center', behavior: 'smooth'}); 
+            data.panes[data.activeIndex].ref.current.scrollIntoView({block: 'center', behavior: 'smooth'}); 
           }}/>
       </div>
     </div>
@@ -35,7 +35,7 @@ const PageHeader = (props) => {
 
 const PageFooter = () => {
   return (
-    <div style={{backgroundColor: "#ffc6c6ff", padding:"1em"}}>
+    <div style={{backgroundColor: "#ffe9e0", padding:"1em"}}>
       <Grid> <Grid.Row> 
         <Grid.Column width={2}> <Image src="/images/bun.png" width={100} height={100}/> </Grid.Column>
         <Grid.Column width={4}style={{fontSize:'medium'}}>
