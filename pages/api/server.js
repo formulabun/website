@@ -9,9 +9,8 @@ export default function handler(req, res) {
       resolve,
       () => {},
       reject);
-  }).then(
-    res.status(200).json
-  ).catch(
-    res.status(500).json
-  );
+  }
+  ).then(
+    (d) => res.status(200).json(d)
+  ).catch(res.status(500).json);
 }
