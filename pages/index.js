@@ -11,8 +11,8 @@ import {
 import Image from 'next/image';
 
 import Activity from './activity.js';
-import { server } from './data.js';
-import { aboutText, detailsText, rulesText, joinText } from './content.js';
+import { server } from '../data.js';
+import { aboutText, detailsText, rulesText, joinText } from '../content.js';
 
 const PageHeader = (props) => {
   return (

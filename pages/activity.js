@@ -8,7 +8,7 @@ import {
 import Counter from './counter.js';
 import Players from './playerlist.js';
 
-import { server } from './data.js';
+import { server } from '../data.js';
 
 function _Activity() {
   const {data, isLoading, isError} = server();

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Placeholder, List } from 'semantic-ui-react';
 
-import { players } from './data.js';
+import { players } from '../data.js';
 
 function Players() {
   const {data, isLoading, isError } = players({refreshInterval: 1000});

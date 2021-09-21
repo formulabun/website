@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Statistic, Placeholder } from 'semantic-ui-react';
 
-import { server } from './data.js';
+import { server } from '../data.js';
 
 function Counter(props) { 
   const { data, isLoading, isError } = server({ refreshInterval: 1000 })
