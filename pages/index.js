@@ -7,6 +7,7 @@ import {
   Header,
   Tab,
   Grid,
+  Menu,
 } from 'semantic-ui-react';
 import Image from 'next/image';
 
@@ -21,13 +22,20 @@ const PageHeader = (props) => {
       <div style={{padding: '1em 0em 0em 1em'}}>
         <Header as="h1" style={{marginBottom: 0}}> Formula Bun </Header>
         <Header as="h3" style={{margin: '0em 0 1em 0'}}> Just a vanilla srb2kart server </Header>
-        <Tab
-          menu={{text: true}}
-          panes={props.menu}
-          onTabChange={(e, data) => {
-            console.log(data.activeIndex);
-            data.panes[data.activeIndex].ref.current.scrollIntoView({block: 'center', behavior: 'smooth'}); 
-          }}/>
+        <Menu text stackable
+            onItemClick={(e, d) => {
+              console.log(d);
+            }}
+          >
+        {props.menu.map(m =>
+          <Menu.Item key={m.name}
+            name={m.name}
+            onClick={() =>
+              m.ref.current.scrollIntoView({block:'center', behavior:'smooth'})
+            }
+            />)
+        }
+        </Menu>
       </div>
     </div>
   );
@@ -55,16 +63,16 @@ const Index = () => {
   const details = useRef(null);
 
   const menuItems = [
-    { menuItem: 'about', ref:about},
-    { menuItem: 'activity', ref:activity},
-    { menuItem: 'rules', ref:rules},
-    { menuItem: 'join now', ref:join},
-    { menuItem: 'details', ref:details}];
+    { name: 'about', ref:about},
+    { name: 'activity', ref:activity},
+    { name: 'rules', ref:rules},
+    { name: 'join now', ref:join},
+    { name: 'details', ref:details}];
 
   return (
     <Container style={{margin:"0em 6em 0em 6em", width:1015}} >
       <PageHeader menu={menuItems}/>
-      <div style={{padding:'1em 8em 1em 8em', fontSize:'large'}}>
+      <Container text style={{ fontSize:'large'}}>
         <p ref={about}>{aboutText}</p>
         <hr/>
         <div ref={activity}><Activity/></div>
@@ -74,7 +82,7 @@ const Index = () => {
         <p ref={join}>{joinText}</p>
         <hr/>
         <p ref={details}>{detailsText}</p>
-      </div>
+      </Container>
       <PageFooter/>
     </Container>
   )

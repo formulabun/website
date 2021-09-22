@@ -8,7 +8,7 @@ export const detailsText = (<>
   This server is hosted in Germany using Contabo and is maintained by Fl_GUI.
   I started this server in May 2021 as a private one for a small group of friends who all met through srb2kart.
   A couple months later I felt that it should be public.
-  The very first that the server was public was a great success, and reminded some of us of the old kkd days, but with more maps.
+  The very first day that the server was public was a great success, and reminded some of us of the old kkd days, but with more maps.
   This vanilla experience has become rare, so formulabun aims to fill this gap.
   </p>
   <p>
