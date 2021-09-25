@@ -49,7 +49,9 @@ export const rulesText = (<>
   Don't let it go that far. We're all doing this because we want a fun time playing a game we love.
   </p>
   <p>
-  An active mod acts in name of formulabun and me personally. If you think a mod treated you unfairly please contact Fl_GUI#5136.
+  An active mod acts in name of formulabun and me personally.
+  If you think a mod treated you unfairly please contact Fl_GUI#5136.
+  A mod follows the guidelines found <a href={`http://${process.env.NEXT_PUBLIC_KARTSERVER_IP}/files/modguide.pdf`}>here</a>.
   <br/>
   An inactive mod is their own person. They can say what they want but their views do not have to represent formulabun.
   </p>

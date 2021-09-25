@@ -1,5 +1,4 @@
 import {getSrb2Info} from "srb2kartinfoparse";
-require('dotenv').config();
 
 export default function handler(req, res) {
   return new Promise((resolve, reject) => {
