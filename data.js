@@ -13,8 +13,8 @@ const fetcher = async (url) => {
   return await res.json()
 }
 
-export function server(options= {}) {
-  const {data, error} = useSWR('/api/server/', fetcher, options);
+const wrapper = (url, options) => {
+  const {data, error} = useSWR(url, fetcher, options);
 
   return {
     data,
@@ -23,12 +23,14 @@ export function server(options= {}) {
   }
 }
 
-export function players(options = {}) {
-  const {data, error} = useSWR('/api/players/', fetcher, options);
+export function server(options= {}) {
+  return wrapper('/api/server/', options);
+}
 
-  return {
-    data,
-    isLoading: !error && !data,
-    isError: error,
-  }
+export function players(options = {}) {
+  return wrapper('/api/players/', options);
+}
+
+export function maps(options = {}) {
+  return wrapper('/api/maps/', options);
 }
