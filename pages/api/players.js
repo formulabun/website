@@ -1,4 +1,4 @@
-import {getSrb2Info} from "srb2kartinfoparse";
+import getSrb2Info from "srb2kartinfoparse";
 
 export default function handler(req, res) {
   return new Promise((resolve, reject) => {
