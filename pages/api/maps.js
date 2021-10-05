@@ -43,7 +43,7 @@ export default async function handler(req, res) {
   try {
     fs.accessSync('./pages/api/main.soc');
     const content = fs.readFileSync('./pages/api/main.soc', 'utf-8');
-    soc = parseSocFile(content, {});
+    soc = parseSocFile('maps.kart', content, {});
   } catch {
     console.log('Please copy the soc from inside maps.kart to pages/api/main.soc')
   }
@@ -59,7 +59,7 @@ export default async function handler(req, res) {
   }
   for(const file of filenames.map(p => path.basename(p)).filter(isSocFile)) {
     const content = fs.readFileSync(nameToPath(file), 'utf-8');
-    soc = parseSocFile(content, soc);
+    soc = parseSocFile(file, content, soc);
   }
   soc.state = undefined;
   soc.object = undefined;

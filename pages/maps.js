@@ -14,12 +14,12 @@ import Page from '../components/headerfooter.js';
 const objToRow = (obj) => {
   return (
     <Row>
-      <Cell>{obj.mapid}</Cell>
-      <Cell>{`${obj.LevelName || ''} ${obj.SubTitle || ''}`}</Cell>
-      <Cell>TODO</Cell>
-      <Cell>{obj.TypeOfLevel}</Cell>
-      <Cell>{obj.NumLaps}</Cell>
-      <Cell>{obj.Hidden ? "yes" : "no"}</Cell>
+      <Cell>{`map${obj.mapid}`}</Cell>
+      <Cell>{`${obj.levelname || ''} ${obj.subtitle || ''}`}</Cell>
+      <Cell>{obj.mappack}</Cell>
+      <Cell>{obj.typeoflevel}</Cell>
+      <Cell>{obj.numlaps}</Cell>
+      <Cell>{obj.hidden ? "yes" : "no"}</Cell>
     </Row>
   );
 };
