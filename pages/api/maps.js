@@ -63,5 +63,6 @@ export default async function handler(req, res) {
   }
   soc.state = undefined;
   soc.object = undefined;
+
   return res.status(200).json(soc);
 }

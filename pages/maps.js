@@ -5,6 +5,7 @@ import 'semantic-ui-css/semantic.min.css';
 
 import {
   Table,
+  Loader,
 } from 'semantic-ui-react';
 
 const {Body, Cell, Header, HeaderCell, Row} = Table;
@@ -15,7 +16,7 @@ const objToRow = (obj) => {
   return (
     <Row>
       <Cell>{`map${obj.mapid}`}</Cell>
-      <Cell>{`${obj.levelname || ''} ${obj.subtitle || ''}`}</Cell>
+      <Cell>{`${obj.levelname || ''} ${obj.nozone ? '' : (obj.zonetitle || 'zone')} ${obj.act || ''}`}</Cell>
       <Cell>{obj.mappack}</Cell>
       <Cell>{obj.typeoflevel}</Cell>
       <Cell>{obj.numlaps}</Cell>
@@ -29,7 +30,8 @@ const Maps = (props) => {
   const content = !isLoading && Object.keys(data.level).map(key => {
     data.level[key].mapid = key;
     return data.level[key];
-  });
+  }).filter(o => o.typeoflevel.toLowerCase() !== 'singleplayer');
+  if( isLoading ) return <Loader/>
   return (
     <Page>
       <Table>
