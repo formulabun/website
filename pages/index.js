@@ -11,7 +11,7 @@ import Page from '../components/headerfooter.js';
 
 
 const Index = () => (
-  <Page>
+  <Page text={true}>
       <div id="about">{aboutText}</div>
       <hr/>
       <div id="activity"><Activity/></div>

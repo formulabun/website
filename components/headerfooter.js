@@ -23,7 +23,7 @@ const PageHeader = () => {
       <div style={{padding: '1em 0em 0em 1em'}}>
         <Header as="h1" style={{marginBottom: 0}}> Formula Bun </Header>
         <Header as="h3" style={{margin: '0em 0 1em 0'}}> Just a vanilla srb2kart server </Header>
-        <Menu text stackable>
+        <Menu text stackable style={{margin: '0em'}}>
         {menuItems.map(m =>
           <Menu.Item key={m.name}
             name={m.name}
@@ -51,10 +51,10 @@ const PageFooter = () => {
   );
 }
 
-const Page = ({children}) => (
+const Page = ({text, children}) => (
   <Container style={{margin:"0em 6em 0em 6em", width:1015}} >
     <PageHeader/>
-    <Container text style={{ fontSize:'large'}}>
+    <Container text={text || false} style={{margin:'1em 0 1em 0', fontSize:'large'}}>
       {children}
     </Container>
     <PageFooter/>
