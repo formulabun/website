@@ -64,5 +64,9 @@ export default async function handler(req, res) {
   soc.state = undefined;
   soc.object = undefined;
 
-  return res.status(200).json(soc);
+  const content = Object.keys(soc.level).map(key => {
+    soc.level[key].mapid = key;
+    return soc.level[key];
+  }).filter(o => o.typeoflevel.toLowerCase() !== 'singleplayer');
+  return res.status(200).json(content);
 }

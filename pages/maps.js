@@ -1,4 +1,5 @@
-import {React} from 'react';
+import {React, useReducer} from 'react';
+import _ from 'lodash';
 
 import { maps } from '../data.js';
 import 'semantic-ui-css/semantic.min.css';
@@ -12,9 +13,29 @@ const {Body, Cell, Header, HeaderCell, Row} = Table;
 
 import Page from '../components/headerfooter.js';
 
+function reducer(state, action) {
+  console.log(action);
+  const {column, tableData, direction} = state
+  switch(action.type) {
+    case 'CHANGE_SORT':
+      var sorted = _.sortBy(tableData, [action.column]);
+      if(state.direction === 'ascending')
+        sorted = _.reverse(sorted)
+      return {
+        ...state,
+        tableData: sorted,
+        direction: direction === 'ascending' ? 'descending' : 'ascending',
+        column: action.column,
+      };
+    default:
+      console.error('default action');
+      return state;
+  }
+}
+
 const objToRow = (obj) => {
   return (
-    <Row>
+    <Row key={obj.mapid}>
       <Cell>{`map${obj.mapid}`}</Cell>
       <Cell>{`${obj.levelname || ''} ${obj.nozone ? '' : (obj.zonetitle || 'zone')} ${obj.act || ''}`}</Cell>
       <Cell>{obj.mappack}</Cell>
@@ -25,30 +46,67 @@ const objToRow = (obj) => {
   );
 };
 
-const Maps = (props) => {
-  const {data, isLoading, isError} = maps();
-  const content = !isLoading && Object.keys(data.level).map(key => {
-    data.level[key].mapid = key;
-    return data.level[key];
-  }).filter(o => o.typeoflevel.toLowerCase() !== 'singleplayer');
-  if( isLoading ) return <Loader/>
+const MapsTable = (props) => {
+  const [state, dispatch] = useReducer(reducer, {
+    column: null,
+    tableData: props.data,
+    direction: null 
+  });
+  const { column, tableData, direction } = state;
+
   return (
     <Page>
-      <Table>
+      <Table sortable>
         <Header>
-          <HeaderCell>map id</HeaderCell>
-          <HeaderCell>name</HeaderCell>
-          <HeaderCell>map pack</HeaderCell>
-          <HeaderCell>game type</HeaderCell>
-          <HeaderCell>num laps</HeaderCell>
-          <HeaderCell>in hell</HeaderCell>
+          <HeaderCell
+            sorted={column === 'mapid' ? direction : null}
+            onClick={() => dispatch({type: 'CHANGE_SORT', column: 'mapid'})}
+          >
+            map id
+          </HeaderCell>
+          <HeaderCell
+            sorted={column === 'levelname' ? direction : null}
+            onClick={() => dispatch({type: 'CHANGE_SORT', column: 'levelname'})}
+          >
+            name
+          </HeaderCell>
+          <HeaderCell
+            sorted={column === 'mappack' ? direction : null}
+            onClick={() => dispatch({type: 'CHANGE_SORT', column: 'mappack'})}
+          >
+            map pack
+          </HeaderCell>
+          <HeaderCell
+            sorted={column === 'typeoflevel' ? direction : null}
+            onClick={() => dispatch({type: 'CHANGE_SORT', column: 'typeoflevel'})}
+          >
+            game type
+          </HeaderCell>
+          <HeaderCell
+            sorted={column === 'numlaps' ? direction : null}
+            onClick={() => dispatch({type: 'CHANGE_SORT', column: 'numlaps'})}
+          >
+            num laps
+          </HeaderCell>
+          <HeaderCell
+            sorted={column === 'hidden' ? direction : null}
+            onClick={() => dispatch({type: 'CHANGE_SORT', column: 'hidden'})}
+          >
+            in hell
+          </HeaderCell>
         </Header>
         <Body>
-          {!isLoading && content.map(objToRow)}
+          {tableData.map(objToRow)}
         </Body>
       </Table>
     </Page>
   )
+}
+
+const Maps = () => {
+  const {data, isLoading, isError} = maps();
+  if(isLoading) return (<Loader/>);
+  return (<MapsTable data={data}/>);
 }
 
 
