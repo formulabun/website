@@ -1,4 +1,4 @@
-import {React, useReducer} from 'react';
+import {React, useState, useReducer} from 'react';
 import _ from 'lodash';
 
 import { maps } from '../data.js';
@@ -7,6 +7,7 @@ import 'semantic-ui-css/semantic.min.css';
 import {
   Table,
   Loader,
+  Input,
 } from 'semantic-ui-react';
 
 const {Body, Cell, Header, HeaderCell, Row} = Table;
@@ -33,6 +34,14 @@ function reducer(state, action) {
   }
 }
 
+function searchMap(map, search) {
+
+  if(map.levelname?.match(search)) return true;
+  if(map.mappack?.match(search)) return true;
+  if(('map'+map.mapid).match(search)) return true;
+  return false;
+}
+
 const objToRow = (obj) => {
   return (
     <Row key={obj.mapid}>
@@ -47,15 +56,21 @@ const objToRow = (obj) => {
 };
 
 const MapsTable = (props) => {
+  const [search, setSearch] = useState('');
   const [state, dispatch] = useReducer(reducer, {
     column: null,
     tableData: props.data,
-    direction: null 
+    direction: null,
   });
   const { column, tableData, direction } = state;
 
+  const searchreg = new RegExp(_.escapeRegExp(search), 'i');
+
   return (
     <Page>
+      <Input icon='search' placeholder='search through maps' fluid
+        onChange={_.debounce((e, o) => {setSearch(o.value)}, 300)}
+      />
       <Table sortable>
         <Header>
           <HeaderCell
@@ -96,7 +111,9 @@ const MapsTable = (props) => {
           </HeaderCell>
         </Header>
         <Body>
-          {tableData.map(objToRow)}
+          {tableData.filter(
+            o => searchMap(o, searchreg)
+          ).map(objToRow)}
         </Body>
       </Table>
     </Page>
