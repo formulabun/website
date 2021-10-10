@@ -37,17 +37,26 @@ async function downloadFiles() {
       })));
 }
 
+
 export default async function handler(req, res) {
+  function loadSocFile(file, soc) {
+    const kartfile = file.replace("soc", "kart")
+    try {
+      fs.accessSync('./pages/api/'+file);
+      const content = fs.readFileSync('./pages/api/'+file, 'utf-8');
+      soc = parseSocFile(kartfile, content, soc);
+    } catch {
+      console.log(`Please copy the soc from inside ${kartfile} to pages/api/${file}`)
+      soc.pending = true;
+    }
+    return soc;
+  }
+
   const filenames = await downloadFiles();
   var soc = {}
-  try {
-    fs.accessSync('./pages/api/main.soc');
-    const content = fs.readFileSync('./pages/api/main.soc', 'utf-8');
-    soc = parseSocFile('maps.kart', content, {});
-  } catch {
-    console.log('Please copy the soc from inside maps.kart to pages/api/main.soc')
-  }
   soc.pending = false;
+  soc = loadSocFile('maps.soc', soc)
+  soc = loadSocFile('patch.soc', soc)
 
   for(const file of filenames.filter(isMapPack)) {
     try {
