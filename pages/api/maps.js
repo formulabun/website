@@ -8,6 +8,7 @@ import path from 'path';
 const pathname = path.resolve(os.homedir(), '.cache', 'formulabun-web', 'soc')
 const isMapPack = (name) => /^[A-Z]*R[A-Z]*.*\.pk3$/i.test(name);
 const isSocFile = (name) => /.soc$/i.test(name);
+const isFormulabunFile = (name) => /^k_formulabun_v.*\.pk3$/i.test(name);
 const nameToPath = (name) => `${pathname}${path.sep}${name}`
 
 async function downloadFiles() {
@@ -17,7 +18,7 @@ async function downloadFiles() {
     repo.map(o =>
       o.name
     ).filter(n =>
-      isMapPack(n) || isSocFile(n)
+      isMapPack(n) || isFormulabunFile(n)
     ).map(name => 
       new Promise(async (accept, reject) => {
         try {
@@ -66,10 +67,14 @@ export default async function handler(req, res) {
       soc.pending = true;
     }
   }
-  for(const file of filenames.map(p => path.basename(p)).filter(isSocFile)) {
-    const content = fs.readFileSync(nameToPath(file), 'utf-8');
-    soc = parseSocFile(file, content, soc);
+  const fbunFile = filenames.map(p => path.basename(p)).filter(isFormulabunFile)[0]; 
+  try {
+    soc = await extractSoc(nameToPath(fbunFile), soc);
+  } catch(e) {
+      console.log("Feel free to ignore previous error message. Fetching large files takes a while but only has to be done once");
+      soc.pending = true;
   }
+
   soc.state = undefined;
   soc.object = undefined;
 
@@ -77,5 +82,6 @@ export default async function handler(req, res) {
     soc.level[key].mapid = key;
     return soc.level[key];
   }).filter(o => o.typeoflevel.toLowerCase() !== 'singleplayer');
+
   return res.status(200).json(content);
 }
