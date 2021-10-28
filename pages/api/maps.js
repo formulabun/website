@@ -40,6 +40,7 @@ async function downloadFiles() {
 
 
 export default async function handler(req, res) {
+  console.log("api called");
   function loadSocFile(file, soc) {
     const kartfile = file.replace("soc", "kart")
     try {
