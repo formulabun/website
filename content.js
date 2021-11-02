@@ -1,6 +1,6 @@
 export const aboutText = (<>
   <p>Formula Bun is a regular vanilla, hard speed srb2kart server without any gameplay modifications. There isn’t even KartMP.</p>
-  <p>However, each evening at 9pm CEST a random event starts, for example elimination or friendmod. Don’t like it? Undo it with `vote noevent`.</p>
+  <p>However, each evening at 9pm CEST a random event starts, for example elimination or friendmod. Don’t like it? Undo it with <span style={{fontStyle:'italic'}}>vote noevent</span>.</p>
   </>)
 
 export const detailsText = (<>
@@ -14,7 +14,7 @@ export const detailsText = (<>
   <p>
   Gameplay changes using mods can still be fun however.
   That's why I added the random event that happen every evening at 9pm CEST.
-  These events include: acrobatics, elimination, friendmod, combiring, encore and battle.
+  These events include: advancetricks, elimination, friendmod, combiring, encore and battle.
   One of these is choosen with weithed random chance.
   If an event is not wanted you can enter <span style={{fontStyle:'italic'}}>vote noevent</span> in the console to start a vote to stop the event and return to vanilla race.
   </p>
@@ -22,9 +22,9 @@ export const detailsText = (<>
   <p>Changes made to addons:
   <ul>
   <li>Friendmod: removed the UI that shows when friendmod is not enabled</li>
-  <li>Caterkiller: Changed the easter egg to behave differently for a specific person</li>
+  <li>AdvanceTricks: added an enable cvar</li>
   </ul>
-  These changes follow the reusable rules or have been made after permission from the respective authors.
+  These changes follow the reusable rule or have been made after permission from the respective authors.
   </p>
 
   <p>
