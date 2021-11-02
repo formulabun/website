@@ -31,8 +31,6 @@ export function players(options = {}) {
   return wrapper('/api/players/', options);
 }
 
-export async function maps() {
-  const data = await (fetch(`http://${process.env.NEXT_PUBLIC_KARTSERVER_IP}/api/maps/`).then(res => res.json()));
-  return data;
+export function maps(options = {}) {
+  return wrapper('/api/maps/', options);
 }
-

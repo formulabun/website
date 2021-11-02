@@ -4,6 +4,7 @@ import fetch from 'node-fetch';
 import os from 'os';
 import fs from 'fs';
 import path from 'path';
+import _ from 'lodash';
 
 const pathname = path.resolve(os.homedir(), '.cache', 'formulabun-web', 'soc')
 const isMapPack = (name) => /^[A-Z]*R[A-Z]*.*\.pk3$/i.test(name);
@@ -13,7 +14,7 @@ const nameToPath = (name) => `${pathname}${path.sep}${name}`
 
 async function downloadFiles() {
   const filecachedir = fs.mkdirSync(pathname, {recursive:true});
-  const repo = await fetch(`http://www.${process.env.NEXT_PUBLIC_KARTSERVER_IP}/repo`).then(res => res.json())
+  const repo = await fetch(`http://www.${process.env.NEXT_PUBLIC_REPO_IP}/repo`).then(res => res.json())
   return Promise.all(
     repo.map(o =>
       o.name
@@ -26,7 +27,7 @@ async function downloadFiles() {
           accept(name);
         } catch (e){
           const fileS = fs.createWriteStream(nameToPath(name));
-          await fetch(`http://www.${process.env.NEXT_PUBLIC_KARTSERVER_IP}/repo/${name}`)
+          await fetch(`http://www.${process.env.NEXT_PUBLIC_REPO_IP}/repo/${name}`)
             .then(res => 
               res.body
             ).then(body =>
@@ -40,7 +41,6 @@ async function downloadFiles() {
 
 
 export default async function handler(req, res) {
-  console.log("api called");
   function loadSocFile(file, soc) {
     const kartfile = file.replace("soc", "kart")
     try {
@@ -79,10 +79,13 @@ export default async function handler(req, res) {
   soc.state = undefined;
   soc.object = undefined;
 
-  const content = Object.keys(soc.level).map(key => {
+  const content = _.sortBy(Object.keys(soc.level).map(key => {
     soc.level[key].mapid = key;
     return soc.level[key];
-  }).filter(o => o.typeoflevel.toLowerCase() !== 'singleplayer');
+  }).map(o => {
+      o.hidden = o.hidden || false;
+      return o
+  }).filter(o => o.typeoflevel.toLowerCase() !== 'singleplayer'), ["mapid"]);
 
   return res.status(200).json(content);
 }
