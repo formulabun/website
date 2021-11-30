@@ -32,5 +32,5 @@ export function players(options = {}) {
 }
 
 export function maps(options = {}) {
-  return wrapper('/api/maps/', options);
+  return wrapper('/api/static/maps.json', options);
 }
