@@ -120,11 +120,13 @@ const MapsTable = (props) => {
   )
 }
 
-const Maps = () => {
-  const {data, isLoading, isError} = maps();
-  if(isLoading) return (<Loader/>);
-  return (<MapsTable data={data}/>);
+export default MapsTable;
+
+export async function getStaticProps(context) {
+  const data = await maps();
+  //return (<MapsTable data={data}/>);
+  return {
+    props: {data},
+    revalidate: 60*60, // 1 hour
+  }
 }
-
-
-export default Maps;

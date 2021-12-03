@@ -31,6 +31,7 @@ export function players(options = {}) {
   return wrapper('/api/players/', options);
 }
 
-export function maps(options = {}) {
-  return wrapper('/api/static/maps.json', options);
+export async function maps(options = {}) {
+  const res = await fetch(`https://api.${process.env.NEXT_PUBLIC_REPO_IP}/api/static/maps.json`, options);
+  return await res.json();
 }

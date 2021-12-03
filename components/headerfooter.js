@@ -39,12 +39,16 @@ const PageHeader = () => {
 const PageFooter = () => {
   return (
     <div style={{backgroundColor: "#ffe9e0", padding:"1em"}}>
-      <Grid> <Grid.Row> 
-        <Grid.Column width={2}> <Image src="/images/bun.png" width={100} height={100}/> </Grid.Column>
+      <Grid> <Grid.Row columns={10}> 
+        <Grid.Column width={3}> <Image src="/images/bun.png" width={300} height={300}/> </Grid.Column>
         <Grid.Column width={4}style={{fontSize:'medium'}}>
-          <Icon.Group><Icon name="discord"/>Fl_GUI#5136</Icon.Group>
+          <Icon.Group><Icon name="discord"/> <a href="http://discord.gg/sxFQHxjSFZ">formulabun server</a> </Icon.Group>
+          <Icon.Group><Icon name="discord"/> Fl_GUI#5136</Icon.Group>
           <Icon.Group><Icon name="mail"/><a href="mailto:formulabun@gmail.com">formulabun@gmail.com</a></Icon.Group>
           <Icon.Group><Icon name="github"/><a href="https://www.github.com/formulabun">github.com/formulabun</a></Icon.Group>
+        </Grid.Column>
+        <Grid.Column width={6} floated="right">
+          <iframe src="https://discordapp.com/widget?id=915254659223023626&theme=dark" width="350" height="300" allowtransparency="true" frameBorder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
         </Grid.Column>
       </Grid.Row> </Grid>
     </div>
