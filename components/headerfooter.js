@@ -11,10 +11,11 @@ import Image from 'next/image';
 const menuItems = [
     { name: 'about', url:"/#about"},
     { name: 'activity', url:"/#activity"},
+    { name: 'media', url:"/media"},
     { name: 'maps', url:'/maps'},
     { name: 'rules', url:"/#rules"},
     { name: 'join now', url:"/#join"},
-    { name: 'details', url:"/#details"}
+    { name: 'details', url:"/#details"},
   ];
 
 const PageHeader = () => {

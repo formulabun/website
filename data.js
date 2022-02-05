@@ -32,6 +32,11 @@ export function players(options = {}) {
 }
 
 export async function maps(options = {}) {
-  const res = await fetch(`https://api.${process.env.NEXT_PUBLIC_REPO_IP}/api/static/maps.json`, options);
+  const res = await fetch(`https://${process.env.NEXT_PUBLIC_API}/servers/main/static/maps.json`, options);
+  return await res.json();
+}
+
+export async function discord(options = {}) {
+  const res = await fetch(`http://${process.env.NEXT_PUBLIC_API}/discord`, options);
   return await res.json();
 }
