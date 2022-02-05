@@ -34,5 +34,6 @@ export async function getStaticProps(context) {
     props: {
       links
     },
+    revalidate: 60, // 1 minute
   };
 }
