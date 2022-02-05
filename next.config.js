@@ -3,7 +3,7 @@ module.exports = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://api.formulabun.club/main/:path*',
+        destination: 'http://api.formulabun.club/servers/main/:path*',
       },
     ]
   },
