@@ -34,7 +34,7 @@
     "eslint-plugin-jsx-a11y": "latest",
     "eslint-plugin-prettier": "latest",
     "eslint-plugin-react": "latest",
-    "prettier": "latest"
+    "prettier": "^2.5.1"
   },
   "optionalDependencies": {
     "fsevents": "^2.0.7"
