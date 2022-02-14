@@ -1,8 +1,8 @@
-import React from 'react';
-import App from 'next/app';
-import Head from 'next/head';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import theme from '../config';
+import React from "react";
+import App from "next/app";
+import Head from "next/head";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import theme from "../config";
 
 const GlobalStyle = createGlobalStyle`
   html {

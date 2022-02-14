@@ -1,5 +1,5 @@
 const theme = {
-  primary: '#ffc600',
-};
+  primary: "#ffc600",
+}
 
-export default theme;
+export default theme
