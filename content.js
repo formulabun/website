@@ -1,7 +1,13 @@
+export const serverName = "Formula Bun"
+export const serverURL = "formulabun.club"
+export const serverGitHub = "formulabun"
+export const kartRepo = "STJr/Kart-Public"
+export const moderatorContact = "Fl_GUI#5136"
+
 export const aboutText = (
   <>
     <p>
-      Formula Bun is a regular vanilla, hard speed srb2kart server without any
+      {serverName} is a regular vanilla, hard speed srb2kart server without any
       gameplay modifications. There isn’t even KartMP.
     </p>
     <p>
@@ -20,8 +26,8 @@ export const detailsText = (
       group of friends who all met through srb2kart. A couple months later I
       felt that it should be public. The very first day that the server was
       public was a great success, and reminded some of us of the old kkd days,
-      but with more maps. This vanilla experience has become rare, so formulabun
-      aims to fill this gap.
+      but with more maps. This vanilla experience has become rare, so{" "}
+      {serverName} aims to fill this gap.
     </p>
     <p>
       Gameplay changes using mods can still be fun however. That's why I added
@@ -46,15 +52,15 @@ export const detailsText = (
     </p>
 
     <p>
-      Much of the code that runs or supports formulabun is open source and
+      Much of the code that runs or supports {serverName} is open source and
       available on github. Check out the game itself at{" "}
-      <a href="https://github.com/STJr/Kart-Public">
-        github.com/STJr/Kart-Public
-      </a>{" "}
-      and formulabun specific code at{" "}
-      <a href="https://github.com/formulabun">github.com/formulabun</a>. There
-      also is a discord bot for formulabun, contact Fl_GUI#5136 on discord for
-      more information.
+      <a href={`https://github.com/${kartRepo}`}>github.com/{kartRepo}</a> and{" "}
+      {serverName}-specific code at{" "}
+      <a href={`https://github.com/${serverGitHub}`}>
+        github.com/{serverGitHub}
+      </a>
+      . There also is a discord bot for {serverName}, contact {moderatorContact}{" "}
+      on discord for more information.
     </p>
   </>
 )
@@ -62,7 +68,7 @@ export const detailsText = (
 export const rulesText = (
   <>
     <p>
-      When joining formulabun you must follow these rules:
+      When joining {serverName}, you must follow these rules:
       <ol>
         <li>Respect other players and don't be annoying</li>
         <li>Meme cuts are okay but checkpoint abuse isn't</li>
@@ -78,9 +84,9 @@ export const rulesText = (
       this because we want a fun time playing a game we love.
     </p>
     <p>
-      An active mod acts in name of formulabun and me personally. If you think a
-      mod treated you unfairly please contact Fl_GUI#5136. A mod follows the
-      guidelines found{" "}
+      An active mod acts in name of {serverName} and me personally. If you think
+      a mod treated you unfairly please contact {moderatorContact}. A mod
+      follows the guidelines found{" "}
       <a
         href={`http://${process.env.NEXT_PUBLIC_KARTSERVER_IP}/files/modguide.pdf`}
       >
@@ -89,7 +95,7 @@ export const rulesText = (
       .
       <br />
       An inactive mod is their own person. They can say what they want but their
-      views do not have to represent formulabun.
+      views do not have to represent {serverName}.
     </p>
   </>
 )
@@ -97,10 +103,10 @@ export const rulesText = (
 export const joinText = (
   <>
     <p>
-      Can't find formulabun in the server browser?
+      Can't find {serverName} in the server browser?
       <p>
         On the main menu, open your console with the ` key and type in:{" "}
-        <span style={{ fontStyle: "italic" }}>connect formulabun.club</span>
+        <span style={{ fontStyle: "italic" }}>connect {serverURL}</span>
       </p>
     </p>
     <p>
@@ -110,13 +116,12 @@ export const joinText = (
         <span style={{ fontStyle: "italic" }}>kartexec.cfg</span> in the
         directory where you installed srb2kart. In this file add the line:
       </p>
-      <p style={{ fontStyle: "italic" }}>alias fbun "connect formulabun"</p>
+      <p style={{ fontStyle: "italic" }}>alias fbun "connect {serverURL}"</p>
       <p>
         Now instead of typing
-        <span style={{ fontStyle: "italic" }}> connect formulabun.club </span>
-        you can type
-        <span style={{ fontStyle: "italic" }}> fbun </span>
-        in your console in order to join.
+        <span style={{ fontStyle: "italic" }}>connect {serverURL}</span> you can
+        type <span style={{ fontStyle: "italic" }}>fbun</span> in your console
+        in order to join.
       </p>
     </p>
     <p>
