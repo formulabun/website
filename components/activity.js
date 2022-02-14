@@ -1,13 +1,13 @@
-import { React } from "react"
+import { React } from "react";
 
-import { Header, Icon, Container } from "semantic-ui-react"
-import Counter from "./counter.js"
-import Players from "./playerlist.js"
+import { Header, Icon, Container } from "semantic-ui-react";
+import Counter from "./counter.js";
+import Players from "./playerlist.js";
 
-import { server } from "../data.js"
+import { server } from "../data.js";
 
 function _Activity() {
-  const { data, isLoading, isError } = server()
+  const { data, isLoading, isError } = server();
 
   if (isError)
     return (
@@ -21,7 +21,7 @@ function _Activity() {
         </span>
         on discord.
       </Header>
-    )
+    );
 
   return (
     <>
@@ -30,13 +30,13 @@ function _Activity() {
         <Players />
       </Container>
     </>
-  )
+  );
 }
 
 const Activity = () => (
   <Container textAlign="center">
     <_Activity />
   </Container>
-)
+);
 
-export default Activity
+export default Activity;

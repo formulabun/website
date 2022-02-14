@@ -1,39 +1,39 @@
-import { React, useState, useReducer } from "react"
-import _ from "lodash"
+import { React, useState, useReducer } from "react";
+import _ from "lodash";
 
-import { maps } from "../data.js"
-import "semantic-ui-css/semantic.min.css"
+import { maps } from "../data.js";
+import "semantic-ui-css/semantic.min.css";
 
-import { Table, Loader, Input } from "semantic-ui-react"
+import { Table, Loader, Input } from "semantic-ui-react";
 
-const { Body, Cell, Header, HeaderCell, Row } = Table
+const { Body, Cell, Header, HeaderCell, Row } = Table;
 
-import Page from "../components/headerfooter.js"
+import Page from "../components/headerfooter.js";
 
 function reducer(state, action) {
-  console.log(action)
-  const { column, tableData, direction } = state
+  console.log(action);
+  const { column, tableData, direction } = state;
   switch (action.type) {
     case "CHANGE_SORT":
-      var sorted = _.sortBy(tableData, [action.column])
-      if (state.direction === "ascending") sorted = _.reverse(sorted)
+      var sorted = _.sortBy(tableData, [action.column]);
+      if (state.direction === "ascending") sorted = _.reverse(sorted);
       return {
         ...state,
         tableData: sorted,
         direction: direction === "ascending" ? "descending" : "ascending",
         column: action.column,
-      }
+      };
     default:
-      console.error("default action")
-      return state
+      console.error("default action");
+      return state;
   }
 }
 
 function searchMap(map, search) {
-  if (map.levelname?.match(search)) return true
-  if (map.mappack?.match(search)) return true
-  if (("map" + map.mapid).match(search)) return true
-  return false
+  if (map.levelname?.match(search)) return true;
+  if (map.mappack?.match(search)) return true;
+  if (("map" + map.mapid).match(search)) return true;
+  return false;
 }
 
 const objToRow = (obj) => {
@@ -48,19 +48,19 @@ const objToRow = (obj) => {
       <Cell>{obj.numlaps}</Cell>
       <Cell>{obj.hidden ? "yes" : "no"}</Cell>
     </Row>
-  )
-}
+  );
+};
 
 const MapsTable = (props) => {
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
   const [state, dispatch] = useReducer(reducer, {
     column: null,
     tableData: props.data,
     direction: null,
-  })
-  const { column, tableData, direction } = state
+  });
+  const { column, tableData, direction } = state;
 
-  const searchreg = new RegExp(_.escapeRegExp(search), "i")
+  const searchreg = new RegExp(_.escapeRegExp(search), "i");
 
   return (
     <Page>
@@ -69,7 +69,7 @@ const MapsTable = (props) => {
         placeholder="search through maps"
         fluid
         onChange={_.debounce((e, o) => {
-          setSearch(o.value)
+          setSearch(o.value);
         }, 300)}
       />
       <Table sortable>
@@ -120,16 +120,16 @@ const MapsTable = (props) => {
         </Body>
       </Table>
     </Page>
-  )
-}
+  );
+};
 
-export default MapsTable
+export default MapsTable;
 
 export async function getStaticProps(context) {
-  const data = await maps()
+  const data = await maps();
   //return (<MapsTable data={data}/>);
   return {
     props: { data },
     revalidate: 60 * 60, // 1 hour
-  }
+  };
 }

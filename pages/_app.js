@@ -1,8 +1,8 @@
-import React from "react"
-import App from "next/app"
-import Head from "next/head"
-import { ThemeProvider, createGlobalStyle } from "styled-components"
-import theme from "../config"
+import React from "react";
+import App from "next/app";
+import Head from "next/head";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import theme from "../config";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -20,21 +20,21 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   }
-`
+`;
 
 class FormulabunApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {}
+    let pageProps = {};
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
+      pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps }
+    return { pageProps };
   }
 
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps } = this.props;
 
     return (
       <>
@@ -48,8 +48,8 @@ class FormulabunApp extends App {
         />
         <Component {...pageProps} />
       </>
-    )
+    );
   }
 }
 
-export default FormulabunApp
+export default FormulabunApp;

@@ -1,11 +1,11 @@
-import { React } from "react"
-import "semantic-ui-css/semantic.min.css"
+import { React } from "react";
+import "semantic-ui-css/semantic.min.css";
 
-import { Container } from "semantic-ui-react"
+import { Container } from "semantic-ui-react";
 
-import Activity from "../components/activity.js"
-import { aboutText, detailsText, rulesText, joinText } from "../content.js"
-import Page from "../components/headerfooter.js"
+import Activity from "../components/activity.js";
+import { aboutText, detailsText, rulesText, joinText } from "../content.js";
+import Page from "../components/headerfooter.js";
 
 const Index = () => (
   <Page text={true}>
@@ -21,6 +21,6 @@ const Index = () => (
     <hr />
     <div id="details">{detailsText}</div>
   </Page>
-)
+);
 
-export default Index
+export default Index;

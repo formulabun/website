@@ -1,24 +1,24 @@
-import React from "react"
-import Document, { Html, Head, Main, NextScript } from "next/document"
-import { ServerStyleSheet } from "styled-components"
-import theme from "../config"
+import React from "react";
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { ServerStyleSheet } from "styled-components";
+import theme from "../config";
 
 class MyDocument extends Document {
   static async getInitialProps({ renderPage }) {
-    const sheet = new ServerStyleSheet()
+    const sheet = new ServerStyleSheet();
     const page = renderPage(
       (App) => (props) => sheet.collectStyles(<App {...props} />)
-    )
-    const styleTags = sheet.getStyleElement()
+    );
+    const styleTags = sheet.getStyleElement();
 
     return {
       ...page,
       styleTags,
-    }
+    };
   }
 
   render() {
-    const { styleTags } = this.props
+    const { styleTags } = this.props;
 
     return (
       <Html lang="en">
@@ -33,8 +33,8 @@ class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;

@@ -1,11 +1,11 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 
-import { Statistic, Placeholder } from "semantic-ui-react"
+import { Statistic, Placeholder } from "semantic-ui-react";
 
-import { server } from "../data.js"
+import { server } from "../data.js";
 
 function Counter(props) {
-  const { data, isLoading, isError } = server({ refreshInterval: 1000 })
+  const { data, isLoading, isError } = server({ refreshInterval: 1000 });
   if (isLoading || isError)
     return (
       <Statistic>
@@ -18,7 +18,7 @@ function Counter(props) {
         </Statistic.Value>
         <Statistic.Label> Players </Statistic.Label>
       </Statistic>
-    )
+    );
   return (
     <Statistic>
       <Statistic.Value> {data.numberofplayers}</Statistic.Value>
@@ -26,7 +26,7 @@ function Counter(props) {
         data.numberofplayers > 1 ? "s" : ""
       } Online`}</Statistic.Label>
     </Statistic>
-  )
+  );
 }
 
-export default Counter
+export default Counter;

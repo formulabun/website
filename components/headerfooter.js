@@ -1,5 +1,5 @@
-import { Container, Button, Menu, Grid, Header, Icon } from "semantic-ui-react"
-import Image from "next/image"
+import { Container, Button, Menu, Grid, Header, Icon } from "semantic-ui-react";
+import Image from "next/image";
 
 const menuItems = [
   { name: "about", url: "/#about" },
@@ -9,7 +9,7 @@ const menuItems = [
   { name: "rules", url: "/#rules" },
   { name: "join now", url: "/#join" },
   { name: "details", url: "/#details" },
-]
+];
 
 const PageHeader = () => {
   return (
@@ -60,8 +60,8 @@ const PageHeader = () => {
         </Menu>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const PageFooter = () => {
   return (
@@ -105,8 +105,8 @@ const PageFooter = () => {
         </Grid.Row>{" "}
       </Grid>
     </div>
-  )
-}
+  );
+};
 
 const Page = ({ text, children }) => (
   <Container style={{ margin: "0em 6em 0em 6em", width: 1015 }}>
@@ -119,7 +119,7 @@ const Page = ({ text, children }) => (
     </Container>
     <PageFooter />
   </Container>
-)
+);
 
-export default Page
-export { Page, PageHeader, PageFooter }
+export default Page;
+export { Page, PageHeader, PageFooter };
