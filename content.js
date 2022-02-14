@@ -30,11 +30,23 @@ export const detailsText = (
       {serverName} aims to fill this gap.
     </p>
     <p>
-      Gameplay changes using mods can still be fun however. That's why I added
-      the random event that happen every evening at 9pm CEST. These events
-      include: advancetricks, elimination, friendmod, combiring, encore and
-      battle. One of these is choosen with weithed random chance. If an event is
-      not wanted you can enter{" "}
+      Gameplay changes using mods can still be fun, however. That's why I added
+      the random event that happen every evening at 9pm CEST. These events are:
+      <ul>
+        <li>
+          Advance Tricks: use the brake button and directions to trick your way
+          ahead!
+        </li>
+        <li>Elimination: be the last racer standing - don't fall behind!</li>
+        <li>Friendmod: buddy up with a team and champion your cause!</li>
+        <li>
+          Combi Ring: tether to a teammate! The three-legged race of Kart!
+        </li>
+        <li>Encore: all tracks are mirrored, with wild new color palettes!</li>
+        <li>Battle: use items to your advantage in arena combat!</li>
+      </ul>
+      One of these is chosen with weighted random chance. If an event is not
+      wanted, you can enter{" "}
       <span style={{ fontStyle: "italic" }}>vote noevent</span> in the console
       to start a vote to stop the event and return to vanilla race.
     </p>
