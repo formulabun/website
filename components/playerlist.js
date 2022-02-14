@@ -12,8 +12,7 @@ function Players() {
     <List size="medium" celled>
       {data.playerinfo.map((e) => (
         <List.Item key={e.node}>
-          {" "}
-          <List.Header> {e.name} </List.Header> {e.score}{" "}
+          <List.Header> {e.name} </List.Header> {e.score}
         </List.Item>
       ))}
     </List>

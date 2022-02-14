@@ -14,11 +14,10 @@ function _Activity() {
       <Header size="huge" style={{ color: "red" }}>
         Server seems down.
         <br />
-        Please contact
+        Please contact{" "}
         <span style={{ color: "blue" }}>
-          {" "}
-          <Icon name="discord" fitted /> Fl_GUI#5136{" "}
-        </span>
+          <Icon name="discord" fitted /> Fl_GUI#5136
+        </span>{" "}
         on discord.
       </Header>
     );

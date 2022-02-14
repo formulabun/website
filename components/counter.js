@@ -10,10 +10,8 @@ function Counter(props) {
     return (
       <Statistic>
         <Statistic.Value>
-          {" "}
           <Placeholder>
-            {" "}
-            <Placeholder.Image square={true} />{" "}
+            <Placeholder.Image square={true} />
           </Placeholder>
         </Statistic.Value>
         <Statistic.Label> Players </Statistic.Label>

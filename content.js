@@ -99,7 +99,6 @@ export const joinText = (
     <p>
       Can't find formulabun in the server browser?
       <p>
-        {" "}
         On the main menu, open your console with the ` key and type in:{" "}
         <span style={{ fontStyle: "italic" }}>connect formulabun.club</span>
       </p>
@@ -113,7 +112,6 @@ export const joinText = (
       </p>
       <p style={{ fontStyle: "italic" }}>alias fbun "connect formulabun"</p>
       <p>
-        {" "}
         Now instead of typing
         <span style={{ fontStyle: "italic" }}> connect formulabun.club </span>
         you can type
@@ -124,10 +122,8 @@ export const joinText = (
     <p>
       Do you have the moe mansion build?
       <p>
-        {" "}
         Click{" "}
         <a href={`srb2kart://ip/${process.env.NEXT_PUBLIC_KARTSERVER_IP}`}>
-          {" "}
           here
         </a>
         !

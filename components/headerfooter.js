@@ -17,16 +17,13 @@ const PageHeader = () => {
       <Image src="/images/fastbun.png" width={1015} height={293} />
       <div style={{ padding: "1em 1em 0em 1em" }}>
         <Grid>
-          {" "}
           <Grid.Row columns={2}>
             <Grid.Column>
               <Header as="h1" style={{ marginBottom: 0 }}>
-                {" "}
-                Formula Bun{" "}
+                Formula Bun
               </Header>
               <Header as="h3" style={{ margin: "0em 0 1em 0" }}>
-                {" "}
-                Just a vanilla srb2kart server{" "}
+                Just a vanilla srb2kart server
               </Header>
             </Grid.Column>
             <Grid.Column floated="right">
@@ -37,8 +34,7 @@ const PageHeader = () => {
                 floated="right"
                 color="blue"
               >
-                {" "}
-                <Icon name="discord" /> DISCORD{" "}
+                <Icon name="discord" /> DISCORD
               </Button>
               <Button
                 as="a"
@@ -47,11 +43,10 @@ const PageHeader = () => {
                 floated="right"
                 color="pink"
               >
-                {" "}
-                <Icon name="external" /> Join with Moe!{" "}
+                <Icon name="external" /> Join with Moe!
               </Button>
             </Grid.Column>
-          </Grid.Row>{" "}
+          </Grid.Row>
         </Grid>
         <Menu text stackable style={{ margin: "0em" }}>
           {menuItems.map((m) => (
@@ -67,16 +62,14 @@ const PageFooter = () => {
   return (
     <div style={{ backgroundColor: "#ffe9e0", padding: "1em" }}>
       <Grid>
-        {" "}
         <Grid.Row columns={10}>
           <Grid.Column width={3}>
-            {" "}
-            <Image src="/images/bun.png" width={300} height={300} />{" "}
+            <Image src="/images/bun.png" width={300} height={300} />
           </Grid.Column>
           <Grid.Column width={4} style={{ fontSize: "medium" }}>
             <Icon.Group>
               <Icon name="discord" />{" "}
-              <a href="http://discord.gg/sxFQHxjSFZ">formulabun server</a>{" "}
+              <a href="http://discord.gg/sxFQHxjSFZ">formulabun server</a>
             </Icon.Group>
             <Icon.Group>
               <Icon name="discord" /> Fl_GUI#5136
@@ -102,7 +95,7 @@ const PageFooter = () => {
               sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
             ></iframe>
           </Grid.Column>
-        </Grid.Row>{" "}
+        </Grid.Row>
       </Grid>
     </div>
   );
