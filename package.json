@@ -7,6 +7,9 @@
   "author": "Fl_GUI",
   "license": "MIT",
   "private": false,
+  "prettier": {
+    "semi": false
+  },
   "dependencies": {
     "babel-plugin-styled-components": "latest",
     "dotenv": "^10.0.0",
