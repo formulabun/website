@@ -27,6 +27,6 @@ Generic elements live in `components`. These are normal reactjs components that 
 
 Nextjs can render pages before requests are made, turning some pages into static html+css. Use nextjs' features where applicable.
 
-## Productioncomponents
+## Production
 
 Run `yarn build`/`npm run build` to generate a production build, `yarn start`/`npm run start` to start the production build. The [Formula Bun API](https://github.com/formulabun/api) should be running at the same time.
