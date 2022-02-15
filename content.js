@@ -1,8 +1,8 @@
-export const serverName = "Formula Bun"
-export const serverURL = "formulabun.club"
-export const serverGitHub = "formulabun"
-export const kartRepo = "STJr/Kart-Public"
-export const moderatorContact = "Fl_GUI#5136"
+export const serverName = "Formula Bun";
+export const serverURL = "formulabun.club";
+export const serverGitHub = "formulabun";
+export const kartRepo = "STJr/Kart-Public";
+export const moderatorContact = "Fl_GUI#5136";
 
 export const aboutText = (
   <>
@@ -16,7 +16,7 @@ export const aboutText = (
       <span style={{ fontStyle: "italic" }}>vote noevent</span>.
     </p>
   </>
-)
+);
 
 export const detailsText = (
   <>
@@ -74,7 +74,7 @@ export const detailsText = (
       on discord for more information.
     </p>
   </>
-)
+);
 
 export const rulesText = (
   <>
@@ -109,7 +109,7 @@ export const rulesText = (
       views do not have to represent {serverName}.
     </p>
   </>
-)
+);
 
 export const joinText = (
   <>
@@ -146,4 +146,4 @@ export const joinText = (
       </p>
     </p>
   </>
-)
+);
