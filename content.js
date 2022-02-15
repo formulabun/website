@@ -45,10 +45,9 @@ export const detailsText = (
         <li>Encore: all tracks are mirrored, with wild new color palettes!</li>
         <li>Battle: use items to your advantage in arena combat!</li>
       </ul>
-      One of these is chosen randomly each day. If don't like an event,
-      you can enter{" "}
-      <span style={{ fontStyle: "italic" }}>vote noevent</span> in the console
-      to start a vote to stop the event and return to vanilla race.
+      One of these is chosen randomly each day. If you don't like an event, you
+      can enter <span style={{ fontStyle: "italic" }}>vote noevent</span> in the
+      console to start a vote to stop the event and return to vanilla race.
     </p>
 
     <p>
