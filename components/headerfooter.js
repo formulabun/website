@@ -65,7 +65,7 @@ const PageFooter = () => {
         <Grid.Column computer={3} mobile={6}>
           <Image src="/images/bun.png" width={300} height={300} />
         </Grid.Column>
-        <Grid.Column computer={4} mobile={5}style={{ fontSize: "medium" }}>
+        <Grid.Column computer={4} mobile={5} style={{ fontSize: "medium" }}>
           <Icon.Group>
             <Icon name="discord" />{" "}
             <a href="http://discord.gg/sxFQHxjSFZ">formulabun server</a>

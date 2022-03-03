@@ -1,13 +1,11 @@
-import {React, useState, useReducer} from "react";
+import { React, useState, useReducer } from "react";
 import _ from "lodash";
 
-import {
-  Table,
-} from "semantic-ui-react";
+import { Table } from "semantic-ui-react";
 
 const { Body, Cell, Header, HeaderCell, Row } = Table;
 
-import {mapToTitle, formatMapPack} from "./maps.js";
+import { mapToTitle, formatMapPack } from "./maps.js";
 
 function reducer(state, action) {
   const { column, tableData, direction } = state;
@@ -28,13 +26,12 @@ function reducer(state, action) {
       return {
         ...state,
         tableData: sorted,
-      }
+      };
     default:
       console.error("default action");
       return state;
   }
 }
-
 
 const objToRow = (obj) => {
   return (
@@ -47,7 +44,6 @@ const objToRow = (obj) => {
   );
 };
 
-
 function MapList(props) {
   const [state, dispatch] = useReducer(reducer, {
     column: null,
@@ -57,44 +53,41 @@ function MapList(props) {
 
   const { column, tableData, direction } = state;
 
-  if(props.maps.length !== tableData.length) {
-    dispatch({type: "UPDATE_DATA", newData: props.maps});
+  if (props.maps.length !== tableData.length) {
+    dispatch({ type: "UPDATE_DATA", newData: props.maps });
   }
 
   return (
-      <Table sortable>
-        <Header>
-          <HeaderCell
-            sorted={column === "mapid" ? direction : null}
-            onClick={() => dispatch({ type: "CHANGE_SORT", column: "mapid" })}
-          >
-            map id
-          </HeaderCell>
-          <HeaderCell
-            sorted={column === "levelname" ? direction : null}
-            onClick={() =>
-              dispatch({ type: "CHANGE_SORT", column: "levelname" })
-            }
-          >
-            name
-          </HeaderCell>
-          <HeaderCell
-            sorted={column === "mappack" ? direction : null}
-            onClick={() => dispatch({ type: "CHANGE_SORT", column: "mappack" })}
-          >
-            map pack
-          </HeaderCell>
-          <HeaderCell
-            sorted={column === "numlaps" ? direction : null}
-            onClick={() => dispatch({ type: "CHANGE_SORT", column: "numlaps" })}
-          >
-            num laps
-          </HeaderCell>
-        </Header>
-        <Body>
-          {tableData.map(objToRow)}
-        </Body>
-      </Table>);
+    <Table sortable>
+      <Header>
+        <HeaderCell
+          sorted={column === "mapid" ? direction : null}
+          onClick={() => dispatch({ type: "CHANGE_SORT", column: "mapid" })}
+        >
+          map id
+        </HeaderCell>
+        <HeaderCell
+          sorted={column === "levelname" ? direction : null}
+          onClick={() => dispatch({ type: "CHANGE_SORT", column: "levelname" })}
+        >
+          name
+        </HeaderCell>
+        <HeaderCell
+          sorted={column === "mappack" ? direction : null}
+          onClick={() => dispatch({ type: "CHANGE_SORT", column: "mappack" })}
+        >
+          map pack
+        </HeaderCell>
+        <HeaderCell
+          sorted={column === "numlaps" ? direction : null}
+          onClick={() => dispatch({ type: "CHANGE_SORT", column: "numlaps" })}
+        >
+          num laps
+        </HeaderCell>
+      </Header>
+      <Body>{tableData.map(objToRow)}</Body>
+    </Table>
+  );
 }
 
 export default MapList;
