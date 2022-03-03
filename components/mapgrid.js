@@ -27,7 +27,7 @@ function MapItem(props) {
     <Container
       onMouseEnter={() => doOpen(true)}
       onMouseLeave={() => doOpen(false)}
-      onClick={() => doOpen(!open)}
+      onClick={() => { doOpen(true); setTimeout(() => doOpen(false), 500)} /* Screw mobile */}
     >
       <div style={{
         position: "absolute",
@@ -52,7 +52,7 @@ function MapGrid(props) {
   return (
     <Container>
     <Grid> {props.maps.map(map => {
-      return (<Column key={map.mapid} computer={4} mobile={16} >
+      return (<Column key={map.mapid} computer={4} mobile={8} >
         <MapItem {...{map}}/>
       </Column>)
     })} </Grid> </Container>
