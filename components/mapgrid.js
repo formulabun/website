@@ -52,7 +52,7 @@ function MapGrid(props) {
   return (
     <Container>
     <Grid> {props.maps.map(map => {
-      return (<Column computer={4} mobile={16} >
+      return (<Column key={map.mapid} computer={4} mobile={16} >
         <MapItem {...{map}}/>
       </Column>)
     })} </Grid> </Container>
