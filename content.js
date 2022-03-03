@@ -26,8 +26,8 @@ export const detailsText = (
     <p>
       Gameplay changes using mods can still be fun however. That's why I added
       the random event that happen every evening at 9pm CEST. These events
-      include: advancetricks, elimination, friendmod, combiring, encore and
-      battle. One of these is choosen with weithed random chance. If an event is
+      include: advancetricks, elimination, friendmod, combiring and frontrun.
+      One of these is choosen with weighted random chance. If an event is
       not wanted you can enter{" "}
       <span style={{ fontStyle: "italic" }}>vote noevent</span> in the console
       to start a vote to stop the event and return to vanilla race.
@@ -42,7 +42,7 @@ export const detailsText = (
         <li>AdvanceTricks: added an enable cvar</li>
       </ul>
       These changes follow the reusable rule or have been made after permission
-      from the respective authors.
+      from their respective authors.
     </p>
 
     <p>
