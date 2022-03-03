@@ -11,6 +11,7 @@ import {mapToTitle, formatMapPack} from "./maps.js";
 
 function reducer(state, action) {
   const { column, tableData, direction } = state;
+  console.log(action.type);
   switch (action.type) {
     case "CHANGE_SORT":
       var sorted = _.sortBy(tableData, [action.column]);
@@ -21,6 +22,13 @@ function reducer(state, action) {
         direction: direction === "ascending" ? "descending" : "ascending",
         column: action.column,
       };
+    case "UPDATE_DATA":
+      var sorted = _.sortBy(action.newData, [column]);
+      if (state.direction === "descending") sorted = _.reverse(sorted);
+      return {
+        ...state,
+        tableData: sorted,
+      }
     default:
       console.error("default action");
       return state;
@@ -46,7 +54,12 @@ function MapList(props) {
     tableData: props.maps,
     direction: null,
   });
+
   const { column, tableData, direction } = state;
+
+  if(props.maps.length !== tableData.length) {
+    dispatch({type: "UPDATE_DATA", newData: props.maps});
+  }
 
   return (
       <Table sortable>

@@ -75,7 +75,6 @@ export default MapsTable;
 
 export async function getStaticProps(context) {
   const data = await maps();
-  //return (<MapsTable data={data}/>);
   return {
     props: { data },
     revalidate: 60 * 60, // 1 hour
