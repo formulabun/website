@@ -1,4 +1,5 @@
 import {React, useState, useReducer} from "react";
+import _ from "lodash";
 
 import {
   Table,
@@ -33,9 +34,7 @@ const objToRow = (obj) => {
       <Cell>{`map${obj.mapid}`}</Cell>
       <Cell>{mapToTitle(obj)}</Cell>
       <Cell>{formatMapPack(obj.mappack)}</Cell>
-      {/*<Cell>{obj.typeoflevel}</Cell>*/}
       <Cell>{obj.numlaps}</Cell>
-      {/*<Cell>{obj.hidden ? "yes" : "no"}</Cell>*/}
     </Row>
   );
 };
@@ -44,7 +43,7 @@ const objToRow = (obj) => {
 function MapList(props) {
   const [state, dispatch] = useReducer(reducer, {
     column: null,
-    tableData: props.data,
+    tableData: props.maps,
     direction: null,
   });
   const { column, tableData, direction } = state;
@@ -72,29 +71,15 @@ function MapList(props) {
           >
             map pack
           </HeaderCell>
-          {/*<HeaderCell
-            sorted={column === "typeoflevel" ? direction : null}
-            onClick={() =>
-              dispatch({ type: "CHANGE_SORT", column: "typeoflevel" })
-            }
-          >
-            game type
-          </HeaderCell>*/}
           <HeaderCell
             sorted={column === "numlaps" ? direction : null}
             onClick={() => dispatch({ type: "CHANGE_SORT", column: "numlaps" })}
           >
             num laps
           </HeaderCell>
-          {/*<HeaderCell
-            sorted={column === "hidden" ? direction : null}
-            onClick={() => dispatch({ type: "CHANGE_SORT", column: "hidden" })}
-          >
-            in hell
-          </HeaderCell>*/}
         </Header>
         <Body>
-          {props.maps.map(objToRow)}
+          {tableData.map(objToRow)}
         </Body>
       </Table>);
 }
