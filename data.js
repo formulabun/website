@@ -33,7 +33,7 @@ export function players(options = {}) {
 
 export async function maps(options = {}) {
   const res = await fetch(
-    `https://${process.env.NEXT_PUBLIC_API}/servers/main/static/maps.json`,
+    `http://${process.env.NEXT_PUBLIC_API}/servers/main/static/maps.json`,
     options
   )
   return await res.json()

@@ -30,6 +30,7 @@ export const detailsText = (
       {serverName} aims to fill this gap.
     </p>
     <p>
+
       Gameplay changes using mods can still be fun, however. That's why I added
       the random event that happen every evening at 9pm CEST. These events are:
       <ul>
@@ -42,8 +43,7 @@ export const detailsText = (
         <li>
           Combi Ring: tether to a teammate! The three-legged race of Kart!
         </li>
-        <li>Encore: all tracks are mirrored, with wild new color palettes!</li>
-        <li>Battle: use items to your advantage in arena combat!</li>
+        <li> Fontrun: stay in first to countdown your own timer. You win when it reaches zero! </li>
       </ul>
       One of these is chosen randomly each day. If you don't like an event, you
       can enter <span style={{ fontStyle: "italic" }}>vote noevent</span> in the
@@ -59,7 +59,7 @@ export const detailsText = (
         <li>AdvanceTricks: added an enable cvar</li>
       </ul>
       These changes follow the reusable rule or have been made after permission
-      from the respective authors.
+      from their respective authors.
     </p>
 
     <p>
